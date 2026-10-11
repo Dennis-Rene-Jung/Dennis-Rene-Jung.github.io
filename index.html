@@ -4,111 +4,82 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dennis Jung</title>
-  <meta name="description" content="Dennis Jung — portfolio manager and quantitative researcher. Executive Director at Quintet Private Bank, PhD candidate in Finance at TU Darmstadt. Research on factor investing, commodity risk premia and the term structure.">
+  <meta name="description" content="Dennis Jung — Executive Director at Quintet Private Bank, PhD candidate in Finance at TU Darmstadt. Research in empirical asset pricing and machine learning.">
   <meta name="author" content="Dennis Jung">
   <style>
-    /* ========== 1. COLORS & FONTS ========== */
-    :root {
-      --bg: #fdfcfa;
-      --text: #1f2328;
-      --muted: #6b7280;
-      --accent: #1e3a8a;
-      --line: #e5e7eb;
-      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #8fb0ff; --line: #2a2e33;
-      }
-    }
-    :root[data-theme="dark"] {
-      --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #8fb0ff; --line: #2a2e33;
-    }
+    :root { --bg:#ffffff; --side:#eef2f7; --text:#1d2433; --muted:#64708a; --accent:#1d4e89; --accent2:#0f766e; --line:#e3e8ef;
+            --serif: Georgia, "Iowan Old Style", serif; }
 
-    /* ========== 2. BASE ========== */
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 1.125rem; line-height: 1.65; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
-
-    /* ========== 3. HEADER ========== */
-    header { padding: 40px 0 8px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
-    header .name { font-size: 1.6rem; font-weight: 600; color: var(--text); }
-    nav { display: flex; flex-wrap: wrap; gap: 20px; font-family: var(--sans); font-size: 0.95rem; }
-    nav a { color: var(--muted); }
-    nav a:hover { color: var(--text); text-decoration: none; }
-
-    /* ========== 4. INTRO ========== */
-    .intro { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; padding: 32px 0 40px; border-bottom: 1px solid var(--line); }
-    .intro p { margin: 0 0 1em; }
-    .photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; background: var(--line); }
-    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 0.9rem; margin-top: 8px; }
-
-    /* ========== 5. LISTS ========== */
-    section { padding: 36px 0 8px; }
-    section h2 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
-    .item { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .photo { border-radius: 50%; object-fit: cover; background: var(--line); }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 0.9rem; }
+    .item { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
     .item:first-of-type { border-top: none; }
     .year { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 5px; }
-    .item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 2px; line-height: 1.4; }
+    .item h3 { font-size: 1.08rem; font-weight: 600; margin: 0 0 2px; line-height: 1.4; }
     .item h3 a { color: var(--text); }
     .item h3 a:hover { color: var(--accent); text-decoration: none; }
     .meta { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
     .meta strong { color: var(--text); font-weight: 500; }
-    .summary { font-size: 0.98rem; margin: 6px 0 0; }
-    .status { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); margin-top: 4px; }
+    .summary { font-size: 0.97rem; margin: 6px 0 0; }
+    .status { font-family: var(--sans); font-size: 0.8rem; color: var(--accent2); margin-top: 6px; font-weight: 500; }
     .doclinks { font-family: var(--sans); font-size: 0.8rem; margin-top: 4px; display: flex; gap: 14px; }
-
-    .skills { display: grid; grid-template-columns: 180px 1fr; gap: 6px 16px; font-size: 1rem; }
+    .skills { display: grid; grid-template-columns: 170px 1fr; gap: 8px 16px; font-size: 0.98rem; margin: 0; }
     .skills dt { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 3px; }
     .skills dd { margin: 0; }
-
-    footer { padding: 48px 0 40px; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+    footer { font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
     footer a { color: var(--muted); }
+    :root { --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+            --sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif; }
 
-    /* ========== 6. MOBILE ========== */
-    @media (max-width: 640px) {
-      .intro { grid-template-columns: 1fr; gap: 24px; }
-      .photo { order: -1; width: 140px; height: 140px; }
-      .item, .skills { grid-template-columns: 1fr; gap: 2px; }
-      .skills dd { margin-bottom: 10px; }
-    }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); font-size:1.02rem; line-height:1.65; }
+    .layout { display:grid; grid-template-columns: 320px 1fr; min-height:100vh; }
+    aside { background: var(--side); padding: 48px 32px; border-right: 1px solid var(--line); }
+    aside .inner { position: sticky; top: 48px; }
+    aside .photo { width:150px; height:150px; display:block; margin-bottom: 20px; border: 4px solid #fff; box-shadow: 0 4px 16px rgba(29,78,137,.15); }
+    header { display:block; padding:0; }
+    header .name { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; color: var(--text); display:block; margin-bottom: 4px; }
+    .tag { color: var(--accent); font-weight: 500; font-size: .95rem; margin: 0 0 18px; }
+    nav { display:flex; flex-direction:column; gap:6px; margin: 22px 0; font-size:.95rem; }
+    nav a { color: var(--muted); } nav a:hover { color: var(--accent); text-decoration:none; }
+    .links { flex-direction: column; gap: 6px; }
+    main { padding: 40px 48px; max-width: 860px; }
+    .intro p { margin: 0 0 1em; font-family: var(--serif); font-size: 1.12rem; }
+    .intro { padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    section { padding: 30px 0 6px; }
+    section h2 { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+    .item h3 { font-family: var(--serif); }
+    footer { padding: 40px 0 32px; }
+    @media (max-width:860px){ .layout{grid-template-columns:1fr} aside{padding:32px 16px;border-right:none;border-bottom:1px solid var(--line)} aside .inner{position:static} nav{flex-direction:row;flex-wrap:wrap;gap:16px} .links{flex-direction:row} main{padding:24px 16px} .item,.skills{grid-template-columns:1fr;gap:2px} .skills dd{margin-bottom:10px} }
   </style>
 </head>
 <body>
-  <div class="wrap">
-
-    <!-- ===== HEADER ===== -->
-    <header>
-      <a class="name" href="#">Dennis Jung</a>
-      <nav>
-        <a href="#research">Research</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-      </nav>
-    </header>
-
-    <!-- ===== INTRO ===== -->
-    <div class="intro">
-      <div>
-        <p>I am a portfolio manager and quantitative researcher with more than ten years of experience in asset allocation and portfolio management. I am Executive Director for Asset Allocation &amp; Bespoke Investment Solutions at Quintet Private Bank in Luxembourg. Before that, I managed fixed income portfolios at Deka Investment and multi-asset mandates at H&amp;A Lampe.</p>
-        <p>I am completing a PhD in Finance at the Technical University of Darmstadt with a dissertation on machine learning in asset pricing (expected November 2026). My research covers factor investing and crowding, commodity risk premia and the term structure of interest rates.</p>
-        <div class="links" id="contact">
+  <div class="layout">
+    <aside><div class="inner">
+      <img class="photo" src="https://avatars.githubusercontent.com/u/62620525?v=4" alt="Portrait of Dennis Jung">
+      <header><a class="name" href="#">Dennis Jung</a></header>
+      <p class="tag">Portfolio Manager &amp; Quantitative Researcher</p>
+      <div class="links" id="contact">
           <a href="mailto:dennis_rene_jung@yahoo.com">dennis_rene_jung@yahoo.com</a>
           <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7491541">SSRN</a>
           <a href="https://github.com/Codes-Dennis-Jung">GitHub</a>
           <a href="https://www.linkedin.com/in/dennis-jung-78545672">LinkedIn</a>
           <!-- <a href="cv.pdf">Curriculum vitae</a>  ← remove the comment marks once cv.pdf is uploaded -->
         </div>
-      </div>
-      <!-- To use your own photo instead, upload picture.jpg and change src to "picture.jpg" -->
-      <img class="photo" src="https://avatars.githubusercontent.com/u/62620525?v=4" alt="Portrait of Dennis Jung">
-    </div>
-
+      <nav>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </div></aside>
+    <main>
+      <div class="intro">
+        <p>I am a portfolio advisor / manager and quantitative researcher with more than ten years of experience in asset allocation and portfolio management. I am Executive Director for Asset Allocation &amp; Bespoke Investment Solutions at Quintet Private Bank in Luxembourg. Before that, I managed fixed income portfolios at Deka Investment and multi-asset mandates at H&amp;A Lampe.</p>
+        <p>I am completing a PhD in Finance at the Technical University of Darmstadt with a dissertation on machine learning in asset pricing (expected November 2026). My research interests span empirical asset pricing and machine learning, with work on commodity risk premia, factor investing and the term structure of interest rates.</p>
+        </div>
     <!-- ===== RESEARCH ===== -->
     <section id="research">
       <h2>Working Papers</h2>
@@ -124,13 +95,37 @@
         </div>
       </div>
 
+      <!-- ===== CTA PAPER: fill in once the PDF is available =====
+      <div class="item">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="papers/Jung_CTA.pdf">[Title of the CTA paper]</a></h3>
+          <div class="meta">sole author</div>
+          <p class="summary">[One or two sentences on the main result]</p>
+          <div class="status">Working paper</div>
+          <div class="doclinks"><a href="papers/Jung_CTA.pdf">PDF</a></div>
+        </div>
+      </div>
+      -->
+
+      <div class="item">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">Asymmetric Basis Momentum in Commodity Futures</a></h3>
+          <div class="meta">with <strong>Björn Uhl</strong> (Universität Hamburg)</div>
+          <p class="summary">In 43 commodity futures over 1960–2024, only positive basis momentum predicts next-month returns; negative basis momentum does not. Separate slopes for the two sides earn an out-of-sample alpha of 0.30% per month beyond linear basis momentum and the commodity premium.</p>
+          <div class="status">Working paper</div>
+          <div class="doclinks"><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">PDF</a></div>
+        </div>
+      </div>
+
       <div class="item">
         <div class="year">2026</div>
         <div>
           <h3><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">The Anatomy of Factor Crowding: Volatility and Business-Cycle Risk</a></h3>
           <div class="meta">sole author</div>
           <p class="summary">Across 122 equity factors, the standard returns-based crowding score turns out to be mostly a volatility ranking (rank correlation 0.96). When the same decomposition targets the business cycle, it does tell us which factors will be most sensitive to the economy over the next two years.</p>
-          <div class="status">Under review, Journal of Asset Management</div>
+          <div class="status">Working paper</div>
           <div class="doclinks"><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">SSRN</a></div>
         </div>
       </div>
@@ -141,17 +136,8 @@
           <h3><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">The Limits of the Expectations Hypothesis</a></h3>
           <div class="meta">sole author</div>
           <p class="summary">An out-of-sample test of the expectations hypothesis on daily US repo rates (1998–2026), with linear, tree-based and neural-network forecasts. The departures are statistically predictable, but trading on them earns at most 2.2 basis points a year before costs.</p>
-          <div class="status">Under review, Journal of Empirical Finance</div>
-          <div class="doclinks"><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a></div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="year">WP</div>
-        <div>
-          <h3>Non-Linear Basis Momentum</h3>
-          <div class="meta">with <strong>Bjoern Uhl</strong></div>
-          <div class="status">Under review, Quantitative Finance</div>
+          <div class="status">Working paper</div>
+          <div class="doclinks"><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis_Supplement.pdf">Supplement</a></div>
         </div>
       </div>
     </section>
@@ -274,9 +260,9 @@
       </dl>
     </section>
 
-    <footer>© <span id="y"></span> Dennis Jung · Views are my own. · <a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></footer>
+      <footer>© <span id="y"></span> Dennis Jung · Views are my own. · <a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></footer>
+    </main>
   </div>
-
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
