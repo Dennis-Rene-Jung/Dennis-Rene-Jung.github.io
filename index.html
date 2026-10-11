@@ -132,6 +132,19 @@
       .badge-year { display: inline-block; margin-left: 8px; }
     }
     @media (max-width: 480px) { .wrap { padding: 0 16px; } }
+    /* ---- Arabic: right-to-left ---- */
+    html[dir="rtl"] { --serif: "Noto Naskh Arabic", "Traditional Arabic", "Times New Roman", serif; --sans: "Segoe UI", "Geeza Pro", "Noto Sans Arabic", Tahoma, sans-serif; }
+    html[dir="rtl"] .brand, html[dir="rtl"] .profile h1 { font-family: "Source Serif 4", Georgia, serif; }
+    html[dir="rtl"] .cols h4, html[dir="rtl"] .card h4 { letter-spacing: 0; }
+    html[dir="rtl"] .cols li { padding: 3px 20px 3px 0; }
+    html[dir="rtl"] .cols li::before { left: auto; right: 2px; }
+    html[dir="rtl"] .tl { margin-left: 0; margin-right: 6px; padding-left: 0; padding-right: 28px; border-left: 0; border-right: 1px solid var(--line); }
+    html[dir="rtl"] .job::before { left: auto; right: -34px; }
+    html[dir="rtl"] .abstract { border-left: 0; border-right: 2px solid var(--accent); border-radius: 4px 0 0 4px; }
+    html[dir="rtl"] .pub h3, html[dir="rtl"] .abstract { direction: ltr; text-align: right; unicode-bidi: isolate; }
+    html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+    html[dir="rtl"] .lang-menu button { text-align: right; }
+
     @media print { .topbar, .btns, .toggle, .lang { display: none; } .abstract { display: block; } section { break-inside: avoid-page; } }
   </style>
 </head>
@@ -147,6 +160,9 @@
     </symbol>
     <symbol id="flag-de" viewBox="0 0 5 3" preserveAspectRatio="none">
       <rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/>
+    </symbol>
+    <symbol id="flag-ar" viewBox="0 0 12 6" preserveAspectRatio="none">
+      <rect x="3" width="9" height="2" fill="#00732F"/><rect x="3" y="2" width="9" height="2" fill="#fff"/><rect x="3" y="4" width="9" height="2" fill="#000"/><rect width="3" height="6" fill="#FF0000"/>
     </symbol>
     <symbol id="flag-fr" viewBox="0 0 3 2" preserveAspectRatio="none">
       <rect width="1" height="2" fill="#002654"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#CE1126"/>
@@ -168,6 +184,7 @@
             <li><button data-lang="en"><svg class="flag"><use href="#flag-en"/></svg>English</button></li>
             <li><button data-lang="de"><svg class="flag"><use href="#flag-de"/></svg>Deutsch</button></li>
             <li><button data-lang="fr"><svg class="flag"><use href="#flag-fr"/></svg>Français</button></li>
+            <li><button data-lang="ar"><svg class="flag"><use href="#flag-ar"/></svg>العربية</button></li>
           </ul>
         </div>
         <button class="toggle" id="theme" aria-label="Toggle dark mode">
@@ -276,9 +293,9 @@
       <article class="pub">
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
-          <h3><a href="papers/Jung_Diversification_and_Convexity_in_Trend_Following.pdf">Diversification and Convexity in Trend Following</a></h3>
+          <h3>Diversification and Convexity in Trend Following</h3>
           <div class="authors" data-i18n="au.sole">Sole author</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Diversification_and_Convexity_in_Trend_Following.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button></div>
           <div class="abstract">Shows how the cross-sectional filter of a trend-following portfolio sets both its Sharpe ratio and its convexity. Across 73 futures markets, the equal-risk portfolio offers about fifteen independent Sharpe bets but only four convexity bets. A Sharpe-optimal filter estimated by risk-premium PCA raises the walk-forward Sharpe ratio from 0.60 to 1.33 with no detectable loss of convexity.</div>
         </div>
       </article>
@@ -286,9 +303,9 @@
       <article class="pub">
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
-          <h3><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">Asymmetric Basis Momentum in Commodity Futures</a></h3>
+          <h3>Asymmetric Basis Momentum in Commodity Futures</h3>
           <div class="authors" data-i18n="au.uhl">with <b>Björn Uhl</b> (Universität Hamburg)</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button></div>
           <div class="abstract">In 43 commodity futures over 1960–2024, only positive basis momentum predicts next-month returns; negative basis momentum does not. Separate slopes for the two sides earn an out-of-sample alpha of 0.30% per month beyond linear basis momentum and the commodity premium.</div>
         </div>
       </article>
@@ -308,7 +325,7 @@
         <div>
           <h3><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">The Limits of the Expectations Hypothesis</a></h3>
           <div class="authors" data-i18n="au.sole">Sole author</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis_Supplement.pdf">Supplement</a></div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a></div>
           <div class="abstract">An out-of-sample test of the expectations hypothesis on daily US repo rates (1998–2026), with linear, tree-based and neural-network forecasts. The departures are statistically predictable, but trading on them earns at most 2.2 basis points a year before costs.</div>
         </div>
       </article>
@@ -371,6 +388,7 @@
       var dict = (window.I18N || {})[lang] || {};
       i18nEls.forEach(function (el) { el.innerHTML = dict[el.dataset.i18n] || el.dataset.en; });
       root.lang = lang;
+      root.dir = lang === "ar" ? "rtl" : "ltr";
       document.getElementById("lang-flag").innerHTML = '<use href="#flag-' + lang + '"/>';
       langMenu.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-current", b.dataset.lang === lang); });
       try { localStorage.setItem("lang", lang); } catch (e) {}
@@ -390,7 +408,7 @@
     // Default is always English; a language the visitor picked earlier is kept
     var startLang = null;
     try { startLang = localStorage.getItem("lang"); } catch (e) {}
-    setLang(["en", "de", "fr"].indexOf(startLang) >= 0 ? startLang : "en");
+    setLang(["en", "de", "fr", "ar"].indexOf(startLang) >= 0 ? startLang : "en");
   </script>
   <!-- Visitor statistics: GoatCounter, no cookies, no stored IP addresses (see privacy.html) -->
   <script data-goatcounter="https://dennisjung.goatcounter.com/count" async src="js/count.js"></script>
