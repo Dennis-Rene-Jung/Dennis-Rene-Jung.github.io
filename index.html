@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dennis Jung</title>
+  <meta name="description" content="Dennis Jung — Executive Director, Senior Cross Asset Strategist and quantitative researcher in asset pricing and portfolio construction.">
+  <style>
+    /* ========== 1. COLORS & FONTS — change these to restyle the whole site ========== */
+    :root {
+      --bg: #fdfcfa;
+      --text: #1f2328;
+      --muted: #6b7280;
+      --accent: #1d4ed8;
+      --line: #e5e7eb;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #7aa2ff; --line: #2a2e33;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #7aa2ff; --line: #2a2e33;
+    }
+
+    /* ========== 2. BASE ========== */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+
+    /* ========== 3. HEADER & NAVIGATION ========== */
+    header { padding: 40px 0 8px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
+    header .name { font-size: 1.6rem; font-weight: 600; color: var(--text); }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; font-family: var(--sans); font-size: 0.95rem; }
+    nav a { color: var(--muted); }
+    nav a:hover, nav a.active { color: var(--text); text-decoration: none; }
+
+    /* ========== 4. INTRO (text + photo) ========== */
+    .intro { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; padding: 32px 0 40px; border-bottom: 1px solid var(--line); }
+    .intro p { margin: 0 0 1em; }
+    .photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; background: var(--line); }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 0.9rem; margin-top: 8px; }
+
+    /* ========== 5. LISTS (projects, publications, experience …) ========== */
+    section { padding: 36px 0 8px; }
+    section h2 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+    .item { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .item:first-of-type { border-top: none; }
+    .year { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 4px; }
+    .item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 2px; line-height: 1.4; }
+    .item h3 a { color: var(--text); }
+    .item h3 a:hover { color: var(--accent); text-decoration: none; }
+    .meta { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+    .meta strong { color: var(--text); font-weight: 500; }
+    .award { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); margin-top: 4px; }
+
+    footer a { color: var(--muted); }
+    footer { padding: 48px 0 40px; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+
+    /* ========== 6. MOBILE ========== */
+    @media (max-width: 640px) {
+      .intro { grid-template-columns: 1fr; gap: 24px; }
+      .photo { order: -1; width: 140px; height: 140px; }
+      .item { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <a class="name" href="#">Dennis Jung</a>
+      <nav>
+        <a href="#research" class="active">Research</a>
+        <a href="#code">Code</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ===== INTRO ===== -->
+    <div class="intro">
+      <div>
+        <p>I am an Executive Director and Senior Cross Asset Strategist based in Luxembourg, working on bespoke portfolio solutions. <em>[Add your employer here if you'd like to name it.]</em></p>
+        <p>Alongside my industry role, I do quantitative research at the Technical University of Darmstadt. My interests span empirical asset pricing, commodity markets, factor investing and robust portfolio construction.</p>
+        <div class="links" id="contact">
+          <a href="mailto:you@example.com">[your email]</a>
+          <a href="cv.pdf">Curriculum vitae</a>
+          <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7491541">SSRN</a>
+          <a href="https://github.com/Codes-Dennis-Jung">GitHub</a>
+          <a href="https://www.linkedin.com/in/dennis-jung-78545672">LinkedIn</a>
+        </div>
+      </div>
+      <!-- Uses your GitHub avatar. To use another photo, upload picture.jpg and change src to "picture.jpg" -->
+      <img class="photo" src="https://avatars.githubusercontent.com/u/62620525?v=4" alt="Portrait of Dennis Jung">
+    </div>
+
+    <!-- ===== RESEARCH ===== -->
+    <section id="research">
+      <h2>Working Papers</h2>
+
+      <div class="item">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">Crowded Factors and Business-Cycle Risk in Multi-Factor Portfolios</a></h3>
+          <div class="meta"><strong>SSRN Working Paper</strong> · single-authored</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2025</div>
+        <div>
+          <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">The Sector Anatomy of Commodity Risk Premia</a></h3>
+          <div class="meta"><strong>SSRN Working Paper</strong> · with Daniele Bianchi</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CODE ===== -->
+    <section id="code">
+      <h2>Code</h2>
+
+      <div class="item">
+        <div class="year">Python</div>
+        <div>
+          <h3><a href="https://github.com/Codes-Dennis-Jung/Robust_Portfolio_Optimization">Robust Portfolio Optimization</a></h3>
+          <div class="meta">[One line on what this project does]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <div class="year">[year]–</div>
+        <div>
+          <h3>Executive Director, Senior Cross Asset Strategist</h3>
+          <div class="meta"><strong>[Employer]</strong> · Luxembourg</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">[years]</div>
+        <div>
+          <h3>[Degree or research role]</h3>
+          <div class="meta"><strong>Technical University of Darmstadt</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Dennis Jung · <a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
