@@ -391,7 +391,6 @@
       root.dir = lang === "ar" ? "rtl" : "ltr";
       document.getElementById("lang-flag").innerHTML = '<use href="#flag-' + lang + '"/>';
       langMenu.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-current", b.dataset.lang === lang); });
-      try { localStorage.setItem("lang", lang); } catch (e) {}
     }
     function closeMenu() { langMenu.classList.remove("open"); langBtn.setAttribute("aria-expanded", "false"); }
     langBtn.addEventListener("click", function (e) {
@@ -405,10 +404,9 @@
     document.addEventListener("click", closeMenu);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
 
-    // Default is always English; a language the visitor picked earlier is kept
-    var startLang = null;
-    try { startLang = localStorage.getItem("lang"); } catch (e) {}
-    setLang(["en", "de", "fr", "ar"].indexOf(startLang) >= 0 ? startLang : "en");
+    // Every visit starts in English; the visitor can switch with the flag menu
+    try { localStorage.removeItem("lang"); } catch (e) {}
+    setLang("en");
   </script>
   <!-- Visitor statistics: GoatCounter, no cookies, no stored IP addresses (see privacy.html) -->
   <script data-goatcounter="https://dennisjung.goatcounter.com/count" async src="js/count.js"></script>
