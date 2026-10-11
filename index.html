@@ -4,75 +4,77 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dennis Jung</title>
-  <meta name="description" content="Dennis Jung — Executive Director, Senior Cross Asset Strategist and quantitative researcher in asset pricing and portfolio construction.">
+  <meta name="description" content="Dennis Jung — portfolio manager and quantitative researcher. Executive Director at Quintet Private Bank, PhD candidate in Finance at TU Darmstadt. Research on factor investing, commodity risk premia and the term structure.">
+  <meta name="author" content="Dennis Jung">
   <style>
-    /* ========== 1. COLORS & FONTS — change these to restyle the whole site ========== */
+    /* ========== 1. COLORS & FONTS ========== */
     :root {
       --bg: #fdfcfa;
       --text: #1f2328;
       --muted: #6b7280;
-      --accent: #1d4ed8;
+      --accent: #1e3a8a;
       --line: #e5e7eb;
       --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
     }
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #7aa2ff; --line: #2a2e33;
+        --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #8fb0ff; --line: #2a2e33;
       }
     }
     :root[data-theme="dark"] {
-      --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #7aa2ff; --line: #2a2e33;
+      --bg: #111315; --text: #e6e6e6; --muted: #9ca3af; --accent: #8fb0ff; --line: #2a2e33;
     }
 
     /* ========== 2. BASE ========== */
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--serif);
-      font-size: 1.125rem;
-      line-height: 1.65;
-    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); font-size: 1.125rem; line-height: 1.65; }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .wrap { max-width: 860px; margin: 0 auto; padding: 0 16px; }
 
-    /* ========== 3. HEADER & NAVIGATION ========== */
+    /* ========== 3. HEADER ========== */
     header { padding: 40px 0 8px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
     header .name { font-size: 1.6rem; font-weight: 600; color: var(--text); }
     nav { display: flex; flex-wrap: wrap; gap: 20px; font-family: var(--sans); font-size: 0.95rem; }
     nav a { color: var(--muted); }
-    nav a:hover, nav a.active { color: var(--text); text-decoration: none; }
+    nav a:hover { color: var(--text); text-decoration: none; }
 
-    /* ========== 4. INTRO (text + photo) ========== */
+    /* ========== 4. INTRO ========== */
     .intro { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; padding: 32px 0 40px; border-bottom: 1px solid var(--line); }
     .intro p { margin: 0 0 1em; }
     .photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; background: var(--line); }
     .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--sans); font-size: 0.9rem; margin-top: 8px; }
 
-    /* ========== 5. LISTS (projects, publications, experience …) ========== */
+    /* ========== 5. LISTS ========== */
     section { padding: 36px 0 8px; }
-    section h2 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
-    .item { display: grid; grid-template-columns: 64px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    section h2 { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+    .item { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
     .item:first-of-type { border-top: none; }
-    .year { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 4px; }
+    .year { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 5px; }
     .item h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 2px; line-height: 1.4; }
     .item h3 a { color: var(--text); }
     .item h3 a:hover { color: var(--accent); text-decoration: none; }
     .meta { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
     .meta strong { color: var(--text); font-weight: 500; }
-    .award { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); margin-top: 4px; }
+    .summary { font-size: 0.98rem; margin: 6px 0 0; }
+    .status { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); margin-top: 4px; }
+    .doclinks { font-family: var(--sans); font-size: 0.8rem; margin-top: 4px; display: flex; gap: 14px; }
 
-    footer a { color: var(--muted); }
+    .skills { display: grid; grid-template-columns: 180px 1fr; gap: 6px 16px; font-size: 1rem; }
+    .skills dt { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); padding-top: 3px; }
+    .skills dd { margin: 0; }
+
     footer { padding: 48px 0 40px; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--muted); }
 
     /* ========== 6. MOBILE ========== */
     @media (max-width: 640px) {
       .intro { grid-template-columns: 1fr; gap: 24px; }
       .photo { order: -1; width: 140px; height: 140px; }
-      .item { grid-template-columns: 1fr; gap: 2px; }
+      .item, .skills { grid-template-columns: 1fr; gap: 2px; }
+      .skills dd { margin-bottom: 10px; }
     }
   </style>
 </head>
@@ -83,27 +85,27 @@
     <header>
       <a class="name" href="#">Dennis Jung</a>
       <nav>
-        <a href="#research" class="active">Research</a>
-        <a href="#code">Code</a>
+        <a href="#research">Research</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
       </nav>
     </header>
 
     <!-- ===== INTRO ===== -->
     <div class="intro">
       <div>
-        <p>I am an Executive Director and Senior Cross Asset Strategist based in Luxembourg, working on bespoke portfolio solutions. <em>[Add your employer here if you'd like to name it.]</em></p>
-        <p>Alongside my industry role, I do quantitative research at the Technical University of Darmstadt. My interests span empirical asset pricing, commodity markets, factor investing and robust portfolio construction.</p>
+        <p>I am a portfolio manager and quantitative researcher with more than ten years of experience in asset allocation and portfolio management. I am Executive Director for Asset Allocation &amp; Bespoke Investment Solutions at Quintet Private Bank in Luxembourg. Before that, I managed fixed income portfolios at Deka Investment and multi-asset mandates at H&amp;A Lampe.</p>
+        <p>I am completing a PhD in Finance at the Technical University of Darmstadt with a dissertation on machine learning in asset pricing (expected November 2026). My research covers factor investing and crowding, commodity risk premia and the term structure of interest rates.</p>
         <div class="links" id="contact">
-          <a href="mailto:you@example.com">[your email]</a>
-          <a href="cv.pdf">Curriculum vitae</a>
+          <a href="mailto:dennis_rene_jung@yahoo.com">dennis_rene_jung@yahoo.com</a>
           <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7491541">SSRN</a>
           <a href="https://github.com/Codes-Dennis-Jung">GitHub</a>
           <a href="https://www.linkedin.com/in/dennis-jung-78545672">LinkedIn</a>
+          <!-- <a href="cv.pdf">Curriculum vitae</a>  ← remove the comment marks once cv.pdf is uploaded -->
         </div>
       </div>
-      <!-- Uses your GitHub avatar. To use another photo, upload picture.jpg and change src to "picture.jpg" -->
+      <!-- To use your own photo instead, upload picture.jpg and change src to "picture.jpg" -->
       <img class="photo" src="https://avatars.githubusercontent.com/u/62620525?v=4" alt="Portrait of Dennis Jung">
     </div>
 
@@ -112,31 +114,56 @@
       <h2>Working Papers</h2>
 
       <div class="item">
-        <div class="year">2026</div>
+        <div class="year">2025</div>
         <div>
-          <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">Crowded Factors and Business-Cycle Risk in Multi-Factor Portfolios</a></h3>
-          <div class="meta"><strong>SSRN Working Paper</strong> · single-authored</div>
+          <h3><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">The Sector Anatomy of Commodity Risk Premia</a></h3>
+          <div class="meta">with <strong>Daniele Bianchi</strong> (Queen Mary University of London)</div>
+          <p class="summary">Splits commodity futures characteristics into a sector-wide and a within-sector part. The sector-wide part drives most of the return variance, but the premia that standard commodity factor models leave unexplained are earned within sectors.</p>
+          <div class="status">Revise &amp; resubmit, Journal of Financial and Quantitative Analysis · Presented at GLOBAFA 2025</div>
+          <div class="doclinks"><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">SSRN</a></div>
         </div>
       </div>
 
       <div class="item">
-        <div class="year">2025</div>
+        <div class="year">2026</div>
         <div>
-          <h3><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">The Sector Anatomy of Commodity Risk Premia</a></h3>
-          <div class="meta"><strong>SSRN Working Paper</strong> · with Daniele Bianchi</div>
+          <h3><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">The Anatomy of Factor Crowding: Volatility and Business-Cycle Risk</a></h3>
+          <div class="meta">sole author</div>
+          <p class="summary">Across 122 equity factors, the standard returns-based crowding score turns out to be mostly a volatility ranking (rank correlation 0.96). When the same decomposition targets the business cycle, it does tell us which factors will be most sensitive to the economy over the next two years.</p>
+          <div class="status">Under review, Journal of Asset Management</div>
+          <div class="doclinks"><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">SSRN</a></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2026</div>
+        <div>
+          <h3><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">The Limits of the Expectations Hypothesis</a></h3>
+          <div class="meta">sole author</div>
+          <p class="summary">An out-of-sample test of the expectations hypothesis on daily US repo rates (1998–2026), with linear, tree-based and neural-network forecasts. The departures are statistically predictable, but trading on them earns at most 2.2 basis points a year before costs.</p>
+          <div class="status">Under review, Journal of Empirical Finance</div>
+          <div class="doclinks"><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">WP</div>
+        <div>
+          <h3>Non-Linear Basis Momentum</h3>
+          <div class="meta">with <strong>Bjoern Uhl</strong></div>
+          <div class="status">Under review, Quantitative Finance</div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CODE ===== -->
-    <section id="code">
-      <h2>Code</h2>
+    <section id="publications">
+      <h2>Publications</h2>
 
       <div class="item">
-        <div class="year">Python</div>
+        <div class="year">2019</div>
         <div>
-          <h3><a href="https://github.com/Codes-Dennis-Jung/Robust_Portfolio_Optimization">Robust Portfolio Optimization</a></h3>
-          <div class="meta">[One line on what this project does]</div>
+          <h3>Value Investing across Asset Classes</h3>
+          <div class="meta"><strong>Economic Research</strong> · 32(1) 1407–1429 · with A. Isiksal, A. Backhaus</div>
         </div>
       </div>
     </section>
@@ -146,23 +173,108 @@
       <h2>Experience</h2>
 
       <div class="item">
-        <div class="year">[year]–</div>
+        <div class="year">2023–</div>
         <div>
-          <h3>Executive Director, Senior Cross Asset Strategist</h3>
-          <div class="meta"><strong>[Employer]</strong> · Luxembourg</div>
+          <h3>Executive Director, Asset Allocation &amp; Bespoke Investment Solutions</h3>
+          <div class="meta"><strong>Quintet Private Bank</strong> · Luxembourg</div>
+          <p class="summary">Founded and lead the pan-European Bespoke Investment Solutions team for family offices and UHNW clients, covering SAA/TAA design and total-portfolio reviews. Led the 2025 launch of private markets in discretionary portfolio management with BlackRock. Built a Python platform for portfolio construction, risk and performance analytics.</p>
         </div>
       </div>
 
       <div class="item">
-        <div class="year">[years]</div>
+        <div class="year">2021–23</div>
         <div>
-          <h3>[Degree or research role]</h3>
-          <div class="meta"><strong>Technical University of Darmstadt</strong></div>
+          <h3>Senior Investment Advisor</h3>
+          <div class="meta"><strong>Banque Internationale à Luxembourg</strong> · Luxembourg</div>
+          <p class="summary">Provided cross-asset advice on a EUR 3bn book of international UHNW clients. Built a quantamental idea-generation process that combines factor screening with investment-committee conviction.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2019–21</div>
+        <div>
+          <h3>Portfolio Manager, Fixed Income</h3>
+          <div class="meta"><strong>Deka Investment</strong> · Frankfurt</div>
+          <p class="summary">Managed a EUR 3bn fixed income book across UCITS funds and institutional mandates, trading sovereigns, credit, CDS, FX forwards and futures. Designed and launched a factor-based emerging-market hard-currency strategy, and won a EUR 100m multi-sector mandate in a competitive pitch.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2016–18</div>
+        <div>
+          <h3>Portfolio Manager, Multi Asset</h3>
+          <div class="meta"><strong>H&amp;A Lampe Private Bank</strong> · Frankfurt</div>
+          <p class="summary">Managed EUR 650m in discretionary UHNW and HNW mandates. Designed a derivatives-based risk overlay to limit drawdowns.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2015–16</div>
+        <div>
+          <h3>Client Relations Manager, Sales (External Consultant)</h3>
+          <div class="meta"><strong>Janus Henderson Investors</strong> · Frankfurt</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2011–14</div>
+        <div>
+          <h3>Working Student</h3>
+          <div class="meta">Lyxor Asset Management (Société Générale), Deka Investment, PwC, RWE Supply &amp; Trading</div>
         </div>
       </div>
     </section>
 
-    <footer>© <span id="y"></span> Dennis Jung · <a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></footer>
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="item">
+        <div class="year">2026</div>
+        <div>
+          <h3>PhD in Finance (Dr. rer. pol.), expected</h3>
+          <div class="meta"><strong>Technical University of Darmstadt</strong> · Advisor: Prof. Dr. Dirk Schiereck</div>
+          <p class="summary">Dissertation: <em>Machine Learning in Asset Pricing</em></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2015</div>
+        <div>
+          <h3>M.Sc. Business &amp; Engineering, Finance &amp; Economics</h3>
+          <div class="meta"><strong>Clausthal University of Technology</strong> · exchange terms at the University of Luxembourg and Tallinn University of Technology</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="year">2012</div>
+        <div>
+          <h3>B.Sc. Business &amp; Engineering</h3>
+          <div class="meta"><strong>University of Applied Sciences Saarbrücken</strong> · exchange term at the University of Lodz</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS & CODE ===== -->
+    <section id="skills">
+      <h2>Skills &amp; Code</h2>
+      <dl class="skills">
+        <dt>Methods</dt>
+        <dd>Factor models and latent factors, machine learning for return prediction, out-of-sample forecast evaluation, portfolio construction and risk budgeting, SAA/TAA</dd>
+        <dt>Programming</dt>
+        <dd>Python (advanced), R, Matlab, SQL, VBA</dd>
+        <dt>Data &amp; platforms</dt>
+        <dd>Bloomberg, FactSet, Refinitiv Eikon, Morningstar Direct, Aladdin Risk</dd>
+        <dt>Asset classes</dt>
+        <dd>Equities, fixed income, FX, commodities, derivatives, hedge funds, private markets</dd>
+        <dt>Code</dt>
+        <dd><a href="https://github.com/Codes-Dennis-Jung/Robust_Portfolio_Optimization">Robust Portfolio Optimization</a> (Python) · <a href="https://github.com/Codes-Dennis-Jung">more on GitHub</a></dd>
+        <dt>Languages</dt>
+        <dd>German (native), English (fluent)</dd>
+      </dl>
+    </section>
+
+    <footer>© <span id="y"></span> Dennis Jung · Views are my own. · <a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></footer>
   </div>
 
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
