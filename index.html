@@ -47,6 +47,14 @@
     .menu a:hover { color: var(--accent); text-decoration: none; }
     .toggle { background: none; border: 1px solid var(--line); border-radius: 6px; width: 32px; height: 32px; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
     .toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .lang { position: relative; }
+    .lang-btn { width: auto; padding: 0 8px; display: flex; align-items: center; gap: 6px; }
+    .lang-btn .caret { width: 10px; height: 10px; }
+    .flag { width: 20px; height: 14px; border-radius: 2px; box-shadow: 0 0 0 1px var(--line); display: block; flex: none; }
+    .lang-menu { position: absolute; right: 0; top: calc(100% + 6px); min-width: 150px; margin: 0; padding: 4px; list-style: none; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.12); display: none; }
+    .lang-menu.open { display: block; }
+    .lang-menu button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 7px 10px; border: 0; border-radius: 6px; background: none; color: var(--text); font: inherit; font-size: .88rem; text-align: left; cursor: pointer; }
+    .lang-menu button:hover, .lang-menu button[aria-current="true"] { background: var(--surface); }
 
     /* ---- hero (Hugo Academic) ---- */
     .hero { display: grid; grid-template-columns: 260px 1fr; gap: 56px; padding: 64px 0 48px; }
@@ -124,17 +132,44 @@
       .badge-year { display: inline-block; margin-left: 8px; }
     }
     @media (max-width: 480px) { .wrap { padding: 0 16px; } }
-    @media print { .topbar, .btns, .toggle { display: none; } .abstract { display: block; } section { break-inside: avoid-page; } }
+    @media print { .topbar, .btns, .toggle, .lang { display: none; } .abstract { display: block; } section { break-inside: avoid-page; } }
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="flag-en" viewBox="0 0 60 30" preserveAspectRatio="none">
+      <clipPath id="uk-clip"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-clip)" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+    </symbol>
+    <symbol id="flag-de" viewBox="0 0 5 3" preserveAspectRatio="none">
+      <rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#DD0000"/><rect y="2" width="5" height="1" fill="#FFCE00"/>
+    </symbol>
+    <symbol id="flag-fr" viewBox="0 0 3 2" preserveAspectRatio="none">
+      <rect width="1" height="2" fill="#002654"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#CE1126"/>
+    </symbol>
+  </svg>
   <header class="topbar">
     <div class="wrap">
       <a class="brand" href="#"><b>Dennis</b> <span>Jung</span></a>
       <nav class="menu">
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a href="#skills">Skills</a>
+        <a href="#experience" data-i18n="nav.exp">Experience</a>
+        <a href="#research" data-i18n="nav.res">Research</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <div class="lang">
+          <button class="toggle lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+            <svg class="flag" id="lang-flag"><use href="#flag-en"/></svg>
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="lang-menu" id="lang-menu">
+            <li><button data-lang="en"><svg class="flag"><use href="#flag-en"/></svg>English</button></li>
+            <li><button data-lang="de"><svg class="flag"><use href="#flag-de"/></svg>Deutsch</button></li>
+            <li><button data-lang="fr"><svg class="flag"><use href="#flag-fr"/></svg>Français</button></li>
+          </ul>
+        </div>
         <button class="toggle" id="theme" aria-label="Toggle dark mode">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
@@ -146,10 +181,10 @@
     <!-- ===== HERO ===== -->
     <div class="hero">
       <div class="profile">
-        <img src="https://avatars.githubusercontent.com/u/62620525?v=4" alt="Portrait of Dennis Jung">
+        <img src="img/dennis-jung.png" alt="Portrait of Dennis Jung">
         <h1>Dennis Jung</h1>
         <p class="role">Executive Director</p>
-        <p class="org">Quintet Private Bank, Luxembourg<br>PhD Candidate, TU Darmstadt</p>
+        <p class="org" data-i18n="org">Quintet Private Bank, Luxembourg<br>PhD Candidate, TU Darmstadt</p>
         <div class="icons">
           <a href="mailto:dennis_rene_jung@yahoo.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
           <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7491541" aria-label="SSRN"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></a>
@@ -160,15 +195,15 @@
 
       <div>
         <div class="bio">
-          <p>I lead investment advisory and portfolio solutions for UHNW clients and family offices. As Executive Director at Quintet Private Bank in Luxembourg, I founded and lead the pan-European Bespoke Investment Solutions team, advise key clients myself and work alongside relationship managers to win and grow mandates.</p>
-          <p>Before that, I was Senior Investment Advisor for international UHNW clients at Banque Internationale à Luxembourg and managed fixed income and multi-asset portfolios at Deka Investment and H&amp;A Lampe. I care most about two things in my work: giving clients clear, well-founded advice and developing the people around me.</p>
-          <p>Alongside my career I am completing a PhD in Finance at the Technical University of Darmstadt (expected November 2026).</p>
+          <p data-i18n="bio1">I lead bespoke portfolio solutions for UHNW clients and family offices. As Executive Director at Quintet Private Bank in Luxembourg, I founded and lead the pan-European Bespoke Investment Solutions team, advise key clients myself and work alongside relationship managers to win and grow mandates.</p>
+          <p data-i18n="bio2">Before that, I was Senior Investment Advisor for international UHNW clients at Banque Internationale à Luxembourg and managed fixed income and multi-asset portfolios at Deka Investment and H&amp;A Lampe. I care most about two things in my work: giving clients clear, well-founded advice and developing the people around me.</p>
+          <p data-i18n="bio3">Alongside my career I am completing a PhD in Finance at the Technical University of Darmstadt (expected November 2026).</p>
         </div>
 
         <div class="cols">
           <div>
-            <h4>Focus areas</h4>
-            <ul>
+            <h4 data-i18n="focus.h">Focus areas</h4>
+            <ul data-i18n="focus.list">
               <li>Investment advisory for UHNW clients &amp; family offices</li>
               <li>Team leadership &amp; developing investment professionals</li>
               <li>Strategic &amp; tactical asset allocation</li>
@@ -177,8 +212,8 @@
             </ul>
           </div>
           <div>
-            <h4>Education</h4>
-            <ul>
+            <h4 data-i18n="edu.h">Education</h4>
+            <ul data-i18n="edu.list">
               <li>PhD in Finance, 2026 (expected)<small>TU Darmstadt · Advisor: Prof. Dr. Dirk Schiereck</small></li>
               <li>M.Sc. Business &amp; Engineering, 2015<small>Clausthal University of Technology</small></li>
               <li>B.Sc. Business &amp; Engineering, 2012<small>HTW Saarbrücken</small></li>
@@ -190,34 +225,34 @@
 
     <!-- ===== EXPERIENCE ===== -->
     <section id="experience">
-      <div class="sec-head"><h2>Experience</h2></div>
+      <div class="sec-head"><h2 data-i18n="exp.h">Experience</h2></div>
       <div class="tl">
         <div class="job now">
-          <div class="job-top"><h3>Executive Director, Asset Allocation &amp; Bespoke Investment Solutions</h3><span class="when">2023 – present</span></div>
-          <div class="where"><b>Quintet Private Bank</b> · Luxembourg</div>
-          <p>Founded and lead Quintet's pan-European Bespoke Investment Solutions team for family offices and UHNW clients; built the methodology, mentor graduates and train front-office teams across the European booking centres. Lead bespoke mandate engagements end to end, from total portfolio review and SAA/TAA design to pitches before family office investment committees, and work with relationship managers on winning and retaining mandates. Led the launch of private markets in discretionary portfolio management in partnership with BlackRock, and present allocation proposals and the house view to senior management, front-office teams and clients. Built a Python portfolio analytics platform that supports our client engagements.</p>
+          <div class="job-top"><h3>Executive Director, Asset Allocation &amp; Bespoke Investment Solutions</h3><span class="when" data-i18n="present">2023 – present</span></div>
+          <div class="where" data-i18n="w.quintet"><b>Quintet Private Bank</b> · Luxembourg</div>
+          <p data-i18n="job1">Founded and lead Quintet's pan-European Bespoke Investment Solutions team for family offices and UHNW clients; built the methodology, mentor graduates and train front-office teams across the European booking centres. Lead bespoke mandate engagements end to end, from total portfolio review and SAA/TAA design to pitches before family office investment committees, and work with relationship managers on winning and retaining mandates. Led the launch of private markets in discretionary portfolio management in partnership with BlackRock, and present allocation proposals and the house view to senior management, front-office teams and clients. Built a Python portfolio analytics platform that supports our client engagements.</p>
         </div>
         <div class="job">
           <div class="job-top"><h3>Senior Investment Advisor</h3><span class="when">2021 – 2023</span></div>
-          <div class="where"><b>Banque Internationale à Luxembourg</b> · Luxembourg</div>
-          <p>Advised international UHNW and family office clients on cross-asset portfolios across equities, fixed income, FX, structured products, hedge funds and private markets. Worked with clients day to day on investment ideas, portfolio reviews and rebalancing within a MiFID II suitability framework, and led pitches with relationship managers to win new advisory mandates.</p>
+          <div class="where" data-i18n="w.bil"><b>Banque Internationale à Luxembourg</b> · Luxembourg</div>
+          <p data-i18n="job2">Advised international UHNW and family office clients on cross-asset portfolios across equities, fixed income, FX, structured products, hedge funds and private markets. Worked with clients day to day on investment ideas, portfolio reviews and rebalancing within a MiFID II suitability framework, and led pitches with relationship managers to win new advisory mandates.</p>
         </div>
         <div class="job">
           <div class="job-top"><h3>Portfolio Manager, Fixed Income</h3><span class="when">2019 – 2021</span></div>
-          <div class="where"><b>Deka Investment</b> · Frankfurt</div>
-          <p>Managed fixed income portfolios across UCITS funds and institutional mandates with individual client guidelines. Led investment committee meetings with institutional clients, supported competitive mandate pitches, and designed and launched a factor-based emerging-market hard-currency strategy.</p>
+          <div class="where" data-i18n="w.deka"><b>Deka Investment</b> · Frankfurt</div>
+          <p data-i18n="job3">Managed fixed income portfolios across UCITS funds and institutional mandates with individual client guidelines. Led investment committee meetings with institutional clients, supported competitive mandate pitches, and designed and launched a factor-based emerging-market hard-currency strategy.</p>
         </div>
         <div class="job">
           <div class="job-top"><h3>Portfolio Manager, Multi Asset</h3><span class="when">2016 – 2018</span></div>
-          <div class="where"><b>H&amp;A Lampe Private Bank</b> · Frankfurt</div>
-          <p>Managed discretionary UHNW and HNW mandates with individual guidelines. Presented performance reviews and tailored proposals to clients alongside relationship managers, and designed a derivatives-based risk overlay to limit drawdowns.</p>
+          <div class="where" data-i18n="w.lampe"><b>H&amp;A Lampe Private Bank</b> · Frankfurt</div>
+          <p data-i18n="job4">Managed discretionary UHNW and HNW mandates with individual guidelines. Presented performance reviews and tailored proposals to clients alongside relationship managers, and designed a derivatives-based risk overlay to limit drawdowns.</p>
         </div>
         <div class="job">
-          <div class="job-top"><h3>Client Relations Manager, Sales (External Consultant)</h3><span class="when">2015 – 2016</span></div>
-          <div class="where"><b>Janus Henderson Investors</b> · Frankfurt</div>
+          <div class="job-top"><h3 data-i18n="t.janus">Client Relations Manager, Sales (External Consultant)</h3><span class="when">2015 – 2016</span></div>
+          <div class="where" data-i18n="w.janus"><b>Janus Henderson Investors</b> · Frankfurt</div>
         </div>
         <div class="job">
-          <div class="job-top"><h3>Working Student</h3><span class="when">2011 – 2014</span></div>
+          <div class="job-top"><h3 data-i18n="t.student">Working Student</h3><span class="when">2011 – 2014</span></div>
           <div class="where">Lyxor Asset Management (Société Générale), Deka Investment, PwC, RWE Supply &amp; Trading</div>
         </div>
       </div>
@@ -225,15 +260,15 @@
 
     <!-- ===== RESEARCH ===== -->
     <section id="research">
-      <div class="sec-head"><h2>Research</h2><span class="count">5 working papers · 1 publication</span></div>
+      <div class="sec-head"><h2 data-i18n="res.h">Research</h2><span class="count" data-i18n="res.count">5 working papers · 1 publication</span></div>
 
       <article class="pub">
         <div><span class="badge rr">JFQA · R&amp;R</span><span class="badge-year">2025</span></div>
         <div>
           <h3><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">The Sector Anatomy of Commodity Risk Premia</a></h3>
-          <div class="authors">with <b>Daniele Bianchi</b> (Queen Mary University of London)</div>
-          <div class="venue">Revise &amp; resubmit, Journal of Financial and Quantitative Analysis · Presented at GLOBAFA 2025</div>
-          <div class="btns"><button>Abstract</button><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">SSRN</a></div>
+          <div class="authors" data-i18n="au.bianchi">with <b>Daniele Bianchi</b> (Queen Mary University of London)</div>
+          <div class="venue" data-i18n="venue.jfqa">Revise &amp; resubmit, Journal of Financial and Quantitative Analysis · Presented at GLOBAFA 2025</div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">SSRN</a></div>
           <div class="abstract">Splits commodity futures characteristics into a sector-wide and a within-sector part. The sector-wide part drives most of the return variance, but the premia that standard commodity factor models leave unexplained are earned within sectors.</div>
         </div>
       </article>
@@ -242,8 +277,8 @@
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
           <h3><a href="papers/Jung_Diversification_and_Convexity_in_Trend_Following.pdf">Diversification and Convexity in Trend Following</a></h3>
-          <div class="authors">Sole author</div>
-          <div class="btns"><button>Abstract</button><a href="papers/Jung_Diversification_and_Convexity_in_Trend_Following.pdf">PDF</a></div>
+          <div class="authors" data-i18n="au.sole">Sole author</div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Diversification_and_Convexity_in_Trend_Following.pdf">PDF</a></div>
           <div class="abstract">Shows how the cross-sectional filter of a trend-following portfolio sets both its Sharpe ratio and its convexity. Across 73 futures markets, the equal-risk portfolio offers about fifteen independent Sharpe bets but only four convexity bets. A Sharpe-optimal filter estimated by risk-premium PCA raises the walk-forward Sharpe ratio from 0.60 to 1.33 with no detectable loss of convexity.</div>
         </div>
       </article>
@@ -252,8 +287,8 @@
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
           <h3><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">Asymmetric Basis Momentum in Commodity Futures</a></h3>
-          <div class="authors">with <b>Björn Uhl</b> (Universität Hamburg)</div>
-          <div class="btns"><button>Abstract</button><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">PDF</a></div>
+          <div class="authors" data-i18n="au.uhl">with <b>Björn Uhl</b> (Universität Hamburg)</div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Uhl_Asymmetric_Basis_Momentum.pdf">PDF</a></div>
           <div class="abstract">In 43 commodity futures over 1960–2024, only positive basis momentum predicts next-month returns; negative basis momentum does not. Separate slopes for the two sides earn an out-of-sample alpha of 0.30% per month beyond linear basis momentum and the commodity premium.</div>
         </div>
       </article>
@@ -262,8 +297,8 @@
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
           <h3><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">The Anatomy of Factor Crowding: Volatility and Business-Cycle Risk</a></h3>
-          <div class="authors">Sole author</div>
-          <div class="btns"><button>Abstract</button><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">SSRN</a></div>
+          <div class="authors" data-i18n="au.sole">Sole author</div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Anatomy_of_Factor_Crowding.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6810623">SSRN</a></div>
           <div class="abstract">Across 122 equity factors, the standard returns-based crowding score turns out to be mostly a volatility ranking (rank correlation 0.96). When the same decomposition targets the business cycle, it does tell us which factors will be most sensitive to the economy over the next two years.</div>
         </div>
       </article>
@@ -272,17 +307,17 @@
         <div><span class="badge">Working paper</span><span class="badge-year">2026</span></div>
         <div>
           <h3><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">The Limits of the Expectations Hypothesis</a></h3>
-          <div class="authors">Sole author</div>
-          <div class="btns"><button>Abstract</button><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis_Supplement.pdf">Supplement</a></div>
+          <div class="authors" data-i18n="au.sole">Sole author</div>
+          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis.pdf">PDF</a><a href="papers/Jung_Limits_of_the_Expectations_Hypothesis_Supplement.pdf">Supplement</a></div>
           <div class="abstract">An out-of-sample test of the expectations hypothesis on daily US repo rates (1998–2026), with linear, tree-based and neural-network forecasts. The departures are statistically predictable, but trading on them earns at most 2.2 basis points a year before costs.</div>
         </div>
       </article>
 
       <article class="pub">
-        <div><span class="badge">Published</span><span class="badge-year">2019</span></div>
+        <div><span class="badge" data-i18n="badge.pub">Published</span><span class="badge-year">2019</span></div>
         <div>
           <h3>Value Investing across Asset Classes</h3>
-          <div class="authors">with A. Isiksal, A. Backhaus</div>
+          <div class="authors" data-i18n="au.value">with A. Isiksal, A. Backhaus</div>
           <div class="venue">Economic Research, 32(1), 1407–1429</div>
         </div>
       </article>
@@ -290,23 +325,24 @@
 
     <!-- ===== SKILLS ===== -->
     <section id="skills">
-      <div class="sec-head"><h2>Skills &amp; Code</h2></div>
+      <div class="sec-head"><h2 data-i18n="sk.h">Skills &amp; Code</h2></div>
       <div class="skills">
-        <div class="card"><h4>Core competencies</h4><p>Cross-asset investment advisory, team leadership and development, mandate acquisition with relationship managers, SAA/TAA and portfolio construction, product selection and investment governance</p></div>
-        <div class="card"><h4>Asset classes</h4><div class="tags"><span>Equities</span><span>Fixed income</span><span>FX</span><span>Funds &amp; ETFs</span><span>Structured products</span><span>Hedge funds</span><span>Private markets</span></div></div>
-        <div class="card"><h4>Programming</h4><div class="tags"><span>Python (advanced)</span><span>R</span><span>Matlab</span><span>SQL</span><span>VBA</span></div></div>
-        <div class="card"><h4>Data &amp; platforms</h4><div class="tags"><span>Bloomberg</span><span>FactSet</span><span>Refinitiv Eikon</span><span>Morningstar Direct</span><span>Aladdin Risk</span><span>Power BI</span></div></div>
-        <div class="card"><h4>Code</h4><p><a href="https://github.com/Codes-Dennis-Jung/Robust_Portfolio_Optimization">Robust Portfolio Optimization</a> (Python) · <a href="https://github.com/Codes-Dennis-Jung">more on GitHub</a></p></div>
-        <div class="card"><h4>Languages</h4><p>German (native), English (fluent)</p></div>
+        <div class="card"><h4 data-i18n="sk.core.h">Core competencies</h4><p data-i18n="sk.core">Cross-asset investment advisory, team leadership and development, mandate acquisition with relationship managers, SAA/TAA and portfolio construction, product selection and investment governance</p></div>
+        <div class="card"><h4 data-i18n="sk.ac.h">Asset classes</h4><div class="tags" data-i18n="sk.ac"><span>Equities</span><span>Fixed income</span><span>FX</span><span>Funds &amp; ETFs</span><span>Structured products</span><span>Hedge funds</span><span>Private markets</span></div></div>
+        <div class="card"><h4 data-i18n="sk.prog.h">Programming</h4><div class="tags" data-i18n="sk.prog"><span>Python (advanced)</span><span>R</span><span>Matlab</span><span>SQL</span><span>VBA</span></div></div>
+        <div class="card"><h4 data-i18n="sk.data.h">Data &amp; platforms</h4><div class="tags"><span>Bloomberg</span><span>FactSet</span><span>Refinitiv Eikon</span><span>Morningstar Direct</span><span>Aladdin Risk</span><span>Power BI</span></div></div>
+        <div class="card"><h4>Code</h4><p data-i18n="sk.code"><a href="https://github.com/Codes-Dennis-Jung/Robust_Portfolio_Optimization">Robust Portfolio Optimization</a> (Python) · <a href="https://github.com/Codes-Dennis-Jung">more on GitHub</a></p></div>
+        <div class="card"><h4 data-i18n="sk.lang.h">Languages</h4><p data-i18n="sk.lang">German (native), English (fluent)</p></div>
       </div>
     </section>
 
     <footer>
-      <span>© <span id="y"></span> Dennis Jung · Views are my own.</span>
-      <span><a href="legal.html">Legal notice</a> · <a href="privacy.html">Privacy</a></span>
+      <span>© <span id="y"></span> Dennis Jung · <span data-i18n="foot.views">Views are my own.</span></span>
+      <span><a href="legal.html" data-i18n="foot.legal">Legal notice</a> · <a href="privacy.html" data-i18n="foot.privacy">Privacy</a></span>
     </footer>
   </main>
 
+  <script src="js/i18n.js"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
@@ -326,6 +362,35 @@
       root.dataset.theme = dark ? "light" : "dark";
       try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
     });
+
+    // Language switcher: English lives in the HTML, German and French in js/i18n.js
+    var i18nEls = document.querySelectorAll("[data-i18n]");
+    i18nEls.forEach(function (el) { el.dataset.en = el.innerHTML; });
+    var langBtn = document.getElementById("lang-btn"), langMenu = document.getElementById("lang-menu");
+    function setLang(lang) {
+      var dict = (window.I18N || {})[lang] || {};
+      i18nEls.forEach(function (el) { el.innerHTML = dict[el.dataset.i18n] || el.dataset.en; });
+      root.lang = lang;
+      document.getElementById("lang-flag").innerHTML = '<use href="#flag-' + lang + '"/>';
+      langMenu.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-current", b.dataset.lang === lang); });
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+    }
+    function closeMenu() { langMenu.classList.remove("open"); langBtn.setAttribute("aria-expanded", "false"); }
+    langBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      langBtn.setAttribute("aria-expanded", langMenu.classList.toggle("open"));
+    });
+    langMenu.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-lang]");
+      if (b) { setLang(b.dataset.lang); closeMenu(); }
+    });
+    document.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
+
+    // Default is always English; a language the visitor picked earlier is kept
+    var startLang = null;
+    try { startLang = localStorage.getItem("lang"); } catch (e) {}
+    setLang(["en", "de", "fr"].indexOf(startLang) >= 0 ? startLang : "en");
   </script>
   <!-- Visitor statistics: GoatCounter, no cookies, no stored IP addresses (see privacy.html) -->
   <script data-goatcounter="https://dennisjung.goatcounter.com/count" async src="js/count.js"></script>
