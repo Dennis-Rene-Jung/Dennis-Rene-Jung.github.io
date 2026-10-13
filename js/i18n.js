@@ -2,6 +2,7 @@
 // Keys match the data-i18n attributes there; a missing key falls back to English.
 window.I18N = {
   de: {
+    "nav.cv": "Lebenslauf",
     "nav.exp": "Erfahrung",
     "nav.res": "Forschung",
     "nav.skills": "Kompetenzen",
@@ -51,6 +52,7 @@ window.I18N = {
   },
 
   fr: {
+    "nav.cv": "CV",
     "nav.exp": "Expérience",
     "nav.res": "Recherche",
     "nav.skills": "Compétences",
