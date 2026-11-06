@@ -101,6 +101,8 @@
     .btns a:hover, .btns button:hover, .btns button[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); text-decoration: none; }
     .abstract { display: none; margin-top: 12px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); font-size: .94rem; border-radius: 0 4px 4px 0; }
     .abstract.open { display: block; }
+    .bibtex { display: none; margin-top: 12px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); font-family: var(--mono); font-size: .72rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 0 4px 4px 0; }
+    .bibtex.open { display: block; }
 
     /* ---- experience timeline ---- */
     .tl { position: relative; margin-left: 6px; padding-left: 28px; border-left: 1px solid var(--line); }
@@ -135,7 +137,7 @@
     }
     @media (max-width: 480px) { .wrap { padding: 0 16px; } }
 
-    @media print { .topbar, .btns, .toggle, .lang { display: none; } .abstract { display: block; } section { break-inside: avoid-page; } }
+    @media print { .topbar, .btns, .toggle, .lang { display: none; } .abstract { display: block; } .bibtex { display: none !important; } section { break-inside: avoid-page; } }
   </style>
 </head>
 <body>
@@ -273,8 +275,14 @@
           <h3><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">The Sector Anatomy of Commodity Risk Premia</a></h3>
           <div class="authors" data-i18n="au.bianchi">with <b>Daniele Bianchi</b> (Queen Mary University of London)</div>
           <div class="venue" data-i18n="venue.jfqa">Revise &amp; resubmit, Journal of Financial and Quantitative Analysis · Presented at GLOBAFA 2025</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">SSRN</a></div>
+          <div class="btns"><button data-i18n="btn.abs" data-box="abstract">Abstract</button><a href="papers/Bianchi_Jung_Sector_Anatomy_of_Commodity_Risk_Premia.pdf">PDF</a><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5182513">SSRN</a><button data-box="bibtex">BibTeX</button></div>
           <div class="abstract" data-i18n="abs.1">Splits each commodity futures characteristic into a sector-wide and a within-sector part and tests which part earns the risk premia. Shows that the premia standard commodity factor models leave unexplained are earned within sectors, not across them.</div>
+          <pre class="bibtex">@unpublished{bianchi2025sector,
+  title={The Sector Anatomy of Commodity Risk Premia},
+  author={Bianchi, Daniele and Jung, Dennis},
+  note={Working paper},
+  year={2025}
+}</pre>
         </div>
       </article>
 
@@ -284,8 +292,14 @@
           <h3><a href="papers/Jung_Expectations_Hypothesis_Repo_Rates.pdf">Does the Expectations Hypothesis Fail Economically? Evidence from US Repo Rates</a></h3>
           <div class="authors" data-i18n="au.sole">Sole author</div>
           <div class="venue" data-i18n="venue.frl">Under review, Finance Research Letters</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Expectations_Hypothesis_Repo_Rates.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs" data-box="abstract">Abstract</button><a href="papers/Jung_Expectations_Hypothesis_Repo_Rates.pdf">PDF</a><button data-box="bibtex">BibTeX</button></div>
           <div class="abstract" data-i18n="abs.2">Tests the expectations hypothesis in US repo rates out of sample with 23 linear and nonlinear forecasting models, controlling for the search across them. Shows that the hypothesis fails statistically only at the very short end and never by enough to trade on after bid–ask spreads.</div>
+          <pre class="bibtex">@unpublished{jung2026expectations,
+  title={Does the Expectations Hypothesis Fail Economically? Evidence from {US} Repo Rates},
+  author={Jung, Dennis},
+  note={Working paper},
+  year={2026}
+}</pre>
         </div>
       </article>
 
@@ -295,8 +309,14 @@
           <h3><a href="papers/Jung_Diversified_Trend_Following.pdf">Diversified Trend Following: Many Bets on the Sharpe Ratio, Few on Convexity</a></h3>
           <div class="authors" data-i18n="au.sole">Sole author</div>
           <div class="venue" data-i18n="venue.qf">Under review, Quantitative Finance</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Diversified_Trend_Following.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs" data-box="abstract">Abstract</button><a href="papers/Jung_Diversified_Trend_Following.pdf">PDF</a><button data-box="bibtex">BibTeX</button></div>
           <div class="abstract" data-i18n="abs.3">Breaks a multi-market trend-following portfolio into trends on its principal components to trace where its convexity comes from. Shows that diversification multiplies bets on the Sharpe ratio but not on convexity, which rests on a few common trends.</div>
+          <pre class="bibtex">@unpublished{jung2026diversified,
+  title={Diversified Trend Following: Many Bets on the {Sharpe} Ratio, Few on Convexity},
+  author={Jung, Dennis},
+  note={Working paper},
+  year={2026}
+}</pre>
         </div>
       </article>
 
@@ -305,8 +325,14 @@
         <div>
           <h3><a href="papers/Jung_Uhl_Asymmetry_of_Basis_Momentum.pdf">The Asymmetry of Basis Momentum in Commodity Futures</a></h3>
           <div class="authors" data-i18n="au.uhl">with <b>Björn Uhl</b> (Universität Hamburg)</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Uhl_Asymmetry_of_Basis_Momentum.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs" data-box="abstract">Abstract</button><a href="papers/Jung_Uhl_Asymmetry_of_Basis_Momentum.pdf">PDF</a><button data-box="bibtex">BibTeX</button></div>
           <div class="abstract" data-i18n="abs.4">Estimates separate effects for positive and negative basis momentum in 43 commodity futures markets from 1960 to 2024. Shows that only positive signals carry information about returns, in line with the theory of storage, so the usual symmetric signal mixes an informative and an uninformative side.</div>
+          <pre class="bibtex">@unpublished{jung2026asymmetry,
+  title={The Asymmetry of Basis Momentum in Commodity Futures},
+  author={Jung, Dennis and Uhl, Bj{\"o}rn},
+  note={Working paper},
+  year={2026}
+}</pre>
         </div>
       </article>
 
@@ -315,17 +341,35 @@
         <div>
           <h3><a href="papers/Jung_Crowding_Measures_Factor_Losses.pdf">Do Crowding Measures Warn of Factor Losses? Volatility and Business-Cycle Risk</a></h3>
           <div class="authors" data-i18n="au.sole">Sole author</div>
-          <div class="btns"><button data-i18n="btn.abs">Abstract</button><a href="papers/Jung_Crowding_Measures_Factor_Losses.pdf">PDF</a></div>
+          <div class="btns"><button data-i18n="btn.abs" data-box="abstract">Abstract</button><a href="papers/Jung_Crowding_Measures_Factor_Losses.pdf">PDF</a><button data-box="bibtex">BibTeX</button></div>
           <div class="abstract" data-i18n="abs.5">Tests whether returns-based crowding measures warn of factor losses across 104 equity factors and 148 US anomalies. Shows that these measures mostly restate factor volatility, while a business-cycle beta does flag future losses among US factors.</div>
+          <pre class="bibtex">@unpublished{jung2026crowding,
+  title={Do Crowding Measures Warn of Factor Losses? Volatility and Business-Cycle Risk},
+  author={Jung, Dennis},
+  note={Working paper},
+  year={2026}
+}</pre>
         </div>
       </article>
 
       <article class="pub">
         <div><span class="badge" data-i18n="badge.pub">Published</span><span class="badge-year">2019</span></div>
         <div>
-          <h3>Value Investing across Asset Classes</h3>
+          <h3><a href="papers/Isiksal_Backhaus_Jung_Value_Investing_across_Asset_Classes.pdf">Value Investing across Asset Classes</a></h3>
           <div class="authors" data-i18n="au.value">with A. Isiksal, A. Backhaus</div>
-          <div class="venue">Economic Research, 32(1), 1407–1429</div>
+          <div class="venue">Economic Research-Ekonomska Istraživanja, 32(1), 1407–1429</div>
+          <div class="btns"><a href="papers/Isiksal_Backhaus_Jung_Value_Investing_across_Asset_Classes.pdf">PDF</a><a href="https://doi.org/10.1080/1331677X.2019.1636696">DOI</a><button data-box="bibtex">BibTeX</button></div>
+          <pre class="bibtex">@article{isiksal2019value,
+  title={Value investing across asset classes},
+  author={Isiksal, Aliya Zhakanova and Backhaus, Achim and Jung, Dennis},
+  journal={Economic Research-Ekonomska Istra{\v{z}}ivanja},
+  volume={32},
+  number={1},
+  pages={1407--1429},
+  year={2019},
+  publisher={Routledge},
+  doi={10.1080/1331677X.2019.1636696}
+}</pre>
         </div>
       </article>
     </section>
@@ -349,16 +393,20 @@
     </footer>
   </main>
 
-  <script src="js/i18n.js?v=20261106f"></script>
+  <script src="js/i18n.js?v=20261106g"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
     document.querySelectorAll(".btns button").forEach(function (b) {
       b.setAttribute("aria-expanded", "false");
       b.addEventListener("click", function () {
-        var box = b.closest("div").parentElement.querySelector(".abstract");
+        var card = b.closest(".btns").parentElement;
+        var box = card.querySelector("." + b.dataset.box);
         var open = box.classList.toggle("open");
         b.setAttribute("aria-expanded", open);
+        card.querySelectorAll(".btns button").forEach(function (o) {
+          if (o !== b) { o.setAttribute("aria-expanded", "false"); var x = card.querySelector("." + o.dataset.box); if (x) x.classList.remove("open"); }
+        });
       });
     });
 
