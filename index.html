@@ -124,6 +124,7 @@
     .tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .tags span { font-size: .82rem; padding: 2px 10px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
     .card p { margin: 0; font-size: .93rem; }
+    .card.wide { grid-column: 1 / -1; }
 
     footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 28px 0 40px; font-size: .82rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     footer a { color: var(--muted); }
@@ -412,11 +413,11 @@
     <section id="skills">
       <div class="sec-head"><h2 data-i18n="sk.h">Skills</h2></div>
       <div class="skills">
-        <div class="card"><h4 data-i18n="sk.core.h">Core competencies</h4><p data-i18n="sk.core">Leading and developing investment specialist teams; growing discretionary and advisory mandates; UHNW and family office pitches; asset allocation and investment governance (Asset Allocation Committee, Risk Council); bespoke multi-asset portfolio construction; private markets in discretionary portfolios; risk management and MiFID II suitability; digital proposal processes; presenting the house view to clients, bankers and senior management</p></div>
+        <div class="card wide"><h4 data-i18n="sk.core.h">Core competencies</h4><div class="tags" data-i18n="sk.core"><span>Leading investment teams</span><span>Mandate growth</span><span>UHNW &amp; family office pitches</span><span>Asset allocation &amp; governance</span><span>Multi-asset portfolio construction</span><span>Private markets</span><span>Risk management &amp; MiFID II</span><span>Digital proposal processes</span><span>House view presentations</span></div></div>
         <div class="card"><h4 data-i18n="sk.ac.h">Asset classes</h4><div class="tags" data-i18n="sk.ac"><span>Equities</span><span>Fixed income</span><span>FX</span><span>Funds &amp; ETFs</span><span>Structured products</span><span>Hedge funds</span><span>Private markets</span></div></div>
-        <div class="card"><h4 data-i18n="sk.prog.h">Programming &amp; Databases</h4><div class="tags" data-i18n="sk.prog"><span>Python (advanced)</span><span>R</span><span>Matlab</span><span>SQL</span><span>VBA</span></div></div>
-        <div class="card"><h4 data-i18n="sk.data.h">Data &amp; platforms</h4><div class="tags"><span>Bloomberg</span><span>FactSet</span><span>Refinitiv Eikon</span><span>Morningstar Direct</span><span>Aladdin Risk</span><span>Power BI</span></div></div>
-        <div class="card"><h4 data-i18n="sk.lang.h">Languages</h4><p data-i18n="sk.lang">German (native), English (fluent), French (A2, actively improving)</p></div>
+        <div class="card"><h4 data-i18n="sk.lang.h">Languages</h4><div class="tags" data-i18n="sk.lang"><span>German (native)</span><span>English (fluent)</span><span>French (A2, improving)</span></div></div>
+        <div class="card"><h4 data-i18n="sk.prog.h">Programming &amp; Databases</h4><div class="tags" data-i18n="sk.prog"><span>Python (advanced)</span><span>R</span><span>Matlab</span><span>SQL</span><span>VBA</span><span>Git &amp; GitHub</span></div></div>
+        <div class="card"><h4 data-i18n="sk.data.h">Data &amp; platforms</h4><div class="tags"><span>Bloomberg</span><span>FactSet</span><span>Refinitiv Eikon</span><span>Morningstar Direct</span><span>BlackRock Aladdin Risk</span><span>Power BI</span><span>LaTeX</span></div></div>
       </div>
     </section>
 
@@ -427,7 +428,7 @@
     </footer>
   </main>
 
-  <script src="js/i18n.js?v=20261106n"></script>
+  <script src="js/i18n.js?v=20261106o"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
