@@ -59,6 +59,7 @@ window.I18N = {
     "sk.lang.h": "Sprachen",
     "sk.lang": "Deutsch (Muttersprache), Englisch (fließend), Französisch (A2, in Verbesserung)",
     "foot.views": "Die hier geäußerten Ansichten sind ausschließlich meine eigenen.",
+    "foot.lic": "Inhalte lizenziert unter <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" rel=\"license\">CC BY-NC-SA 4.0</a>, ausgenommen die Working Papers (alle Rechte vorbehalten) und der veröffentlichte Artikel (CC BY 4.0).",
     "foot.legal": "Impressum",
     "foot.privacy": "Datenschutz"
   },
@@ -122,6 +123,7 @@ window.I18N = {
     "sk.lang.h": "Langues",
     "sk.lang": "Allemand (langue maternelle), anglais (courant), français (A2, en progression)",
     "foot.views": "Les opinions exprimées ici n'engagent que moi.",
+    "foot.lic": "Contenu sous licence <a href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" rel=\"license\">CC BY-NC-SA 4.0</a>, à l'exception des documents de travail (tous droits réservés) et de l'article publié (CC BY 4.0).",
     "foot.legal": "Mentions légales",
     "foot.privacy": "Confidentialité"
   }
