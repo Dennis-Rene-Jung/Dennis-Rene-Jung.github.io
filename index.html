@@ -101,6 +101,7 @@
     .btns a:hover, .btns button:hover, .btns button[aria-expanded="true"] { color: var(--accent); border-color: var(--accent); text-decoration: none; }
     .abstract { display: none; margin-top: 12px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); font-size: .94rem; border-radius: 0 4px 4px 0; }
     .abstract.open { display: block; }
+    .pub .desc { margin: 8px 0 0; font-size: .94rem; }
     .bibtex { display: none; margin-top: 12px; padding: 12px 16px; border-left: 2px solid var(--accent); background: var(--surface); font-family: var(--mono); font-size: .72rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 0 4px 4px 0; }
     .bibtex.open { display: block; }
 
@@ -164,6 +165,7 @@
       <nav class="menu">
         <a href="#experience" data-i18n="nav.exp">Experience</a>
         <a href="#research" data-i18n="nav.res">Research</a>
+        <a href="#projects" data-i18n="nav.proj">Projects</a>
         <a href="#skills" data-i18n="nav.skills">Skills</a>
         <div class="lang">
           <button class="toggle lang-btn" id="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Language">
@@ -379,14 +381,40 @@
     </section>
 
     <!-- ===== SKILLS ===== -->
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+      <div class="sec-head"><h2 data-i18n="proj.h">Projects</h2><span class="count" data-i18n="proj.count">2 open-source Python packages</span></div>
+
+      <article class="pub">
+        <div><span class="badge" data-i18n="badge.os">Open source</span><span class="badge-year">2026</span></div>
+        <div>
+          <h3><a href="https://github.com/Codes-Dennis-Jung/saa-pm">saa-pm</a></h3>
+          <div class="authors" data-i18n="proj.saa.sub">Goal-based strategic asset allocation with private markets</div>
+          <p class="desc" data-i18n="proj.saa">Most portfolio optimisers stop where private markets begin: these assets cannot be sold at short notice, capital is called on the manager's schedule, and smoothed valuations understate their risk. saa-pm builds these frictions into goal-based strategic asset allocation, with goals in priority order (return, income, risk band), corrected valuations and a liquidity charge, and a private-markets sleeve built either from closed-end funds with a funding ladder for capital calls or from semi-liquid evergreen funds such as ELTIFs. It includes a walk-forward backtest, market and liquidity stress tests and two case studies of a USD 100m mandate.</p>
+          <div class="venue" data-i18n="proj.saa.meta">Python · MIT licence · simulated data only · personal project, independent of my employer, not investment advice</div>
+          <div class="btns"><a href="https://github.com/Codes-Dennis-Jung/saa-pm">GitHub</a><a href="https://github.com/Codes-Dennis-Jung/saa-pm/blob/main/examples/Cases_study_SAA_ClosedEnd_PrivateMarkets.ipynb" data-i18n="btn.cs1">Case study: closed-end</a><a href="https://github.com/Codes-Dennis-Jung/saa-pm/blob/main/examples/Cases_study_SAA_SemiLiquid_PrivateMarkets.ipynb" data-i18n="btn.cs2">Case study: semi-liquid</a></div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div><span class="badge" data-i18n="badge.os">Open source</span><span class="badge-year">2026</span></div>
+        <div>
+          <h3><a href="https://github.com/Codes-Dennis-Jung/latent_factor_models">latent-factor-models</a></h3>
+          <div class="authors" data-i18n="proj.lfm.sub">Latent asset-pricing factor models in Python</div>
+          <p class="desc" data-i18n="proj.lfm">Latent factor models estimate the factors that drive asset returns from the returns themselves instead of fixing them in advance. The package brings PCA, risk-premium PCA, supervised PCA, instrumented PCA and the new target-PCA models into one tested framework with a common interface, together with Giglio–Xiu risk-premium inference, time-series cross-validation, a parallel experiment engine and a command-line interface. Results are validated against the authors' original code, and it needs only NumPy and SciPy.</p>
+          <div class="venue" data-i18n="proj.lfm.meta">Python · MIT or Apache-2.0 licence</div>
+          <div class="btns"><a href="https://github.com/Codes-Dennis-Jung/latent_factor_models">GitHub</a></div>
+        </div>
+      </article>
+    </section>
+
     <section id="skills">
-      <div class="sec-head"><h2 data-i18n="sk.h">Skills &amp; Code</h2></div>
+      <div class="sec-head"><h2 data-i18n="sk.h">Skills</h2></div>
       <div class="skills">
         <div class="card"><h4 data-i18n="sk.core.h">Core competencies</h4><p data-i18n="sk.core">Leading and developing investment specialist teams; growing discretionary and advisory mandates; UHNW and family office pitches; asset allocation and investment governance (Asset Allocation Committee, Risk Council); bespoke multi-asset portfolio construction; private markets in discretionary portfolios; risk management and MiFID II suitability; digital proposal processes; presenting the house view to clients, bankers and senior management</p></div>
         <div class="card"><h4 data-i18n="sk.ac.h">Asset classes</h4><div class="tags" data-i18n="sk.ac"><span>Equities</span><span>Fixed income</span><span>FX</span><span>Funds &amp; ETFs</span><span>Structured products</span><span>Hedge funds</span><span>Private markets</span></div></div>
         <div class="card"><h4 data-i18n="sk.prog.h">Programming &amp; Databases</h4><div class="tags" data-i18n="sk.prog"><span>Python (advanced)</span><span>R</span><span>Matlab</span><span>SQL</span><span>VBA</span></div></div>
         <div class="card"><h4 data-i18n="sk.data.h">Data &amp; platforms</h4><div class="tags"><span>Bloomberg</span><span>FactSet</span><span>Refinitiv Eikon</span><span>Morningstar Direct</span><span>Aladdin Risk</span><span>Power BI</span></div></div>
-        <div class="card"><h4>Code</h4><p data-i18n="sk.code"><a href="https://github.com/Codes-Dennis-Jung/saa-pm">Strategic Asset Allocation with Private Markets</a> (Python) · <a href="https://github.com/Codes-Dennis-Jung">more on GitHub</a></p></div>
         <div class="card"><h4 data-i18n="sk.lang.h">Languages</h4><p data-i18n="sk.lang">German (native), English (fluent), French (A2, actively improving)</p></div>
       </div>
     </section>
@@ -398,7 +426,7 @@
     </footer>
   </main>
 
-  <script src="js/i18n.js?v=20261106k"></script>
+  <script src="js/i18n.js?v=20261106l"></script>
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
